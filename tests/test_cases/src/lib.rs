@@ -49,7 +49,7 @@ mod test_tsi_tcp_half_close;
 use test_tsi_tcp_half_close::TestTsiTcpHalfClose;
 
 pub(crate) mod test_net;
-use test_net::TestNet;
+use test_net::{TestNet, TestTapRenew};
 
 mod test_net_perf;
 use test_net_perf::TestNetPerf;
@@ -160,6 +160,7 @@ pub fn test_cases() -> Vec<TestCase> {
         TestCase::new("tsi-tcp-half-close", Box::new(TestTsiTcpHalfClose)),
         TestCase::new("net-passt", Box::new(TestNet::new_passt())),
         TestCase::new("net-tap", Box::new(TestNet::new_tap())),
+        TestCase::new("net-tap-renew", Box::new(TestTapRenew)),
         TestCase::new("net-gvproxy", Box::new(TestNet::new_gvproxy())),
         TestCase::new(
             "net-gvproxy-long-path",
